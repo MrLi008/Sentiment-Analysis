@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>beta_基于机器学习的电影评论情感分析与研究系统</title>
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/echarts.js"></script>
+    <style>
+      body {
+        color: black;
+      }
+      .bkimg {
+        background-image: url('/static/imgs/default.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: opacity(90%);
+        filter: brightness(10%);
+        overflow: hidden;
+      }
+      .myechart_size {
+        height: 450px;
+      }
+      .myechart_size-height-full {
+        with: 95%;
+        height: 480px;
+      }
+    </style>
+    
+    {% include 'config_visual/function_echart.html' %}
+  </head>
+  <body>
+    <div class="bg-image" style="{% include 'config_visual/background.html' %}">
+      <div class="row">
+        <div class="d-flex justify-content-center">
+          <h3 style="color:black; font-size: 30px; font-weight: bold;">beta_基于机器学习的电影评论情感分析与研究系统 模型表(models)</h3>
+        </div>
+      </div>
+      {% csrf_token %}
+
+
+
+
+
+<div class="row">
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_models_modelname_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的名称或版本信息 ******************** pie_v2***/ init_echart("echart_models_modelname_pie_v2",'models.modelname_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_models_modelname_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的名称或版本信息 ******************** pie_v1***/ init_echart("echart_models_modelname_pie_v1",'models.modelname_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_models_modelname_pie" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的名称或版本信息 ******************** pie***/ init_echart("echart_models_modelname_pie",'models.modelname_pie','/config_visual/bi',{});</script>
+<div class="col-sm-5"><div class="default-echart-border"><div id="echart_models_modelname_line" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的名称或版本信息 ******************** line***/ init_echart("echart_models_modelname_line",'models.modelname_line','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_models_modelname_bar" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的名称或版本信息 ******************** bar***/ init_echart("echart_models_modelname_bar",'models.modelname_bar','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_models_modelname_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的名称或版本信息 ******************** bar_v1***/ init_echart("echart_models_modelname_bar_v1",'models.modelname_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+</div>
+
+
+
+
+
+
+<div class="row">
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_models_accuracy_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的准确率基于验证集或测试集的评估结果 ******************** pie_v2***/ init_echart("echart_models_accuracy_pie_v2",'models.accuracy_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_models_accuracy_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的准确率基于验证集或测试集的评估结果 ******************** pie_v1***/ init_echart("echart_models_accuracy_pie_v1",'models.accuracy_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_models_accuracy_pie" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的准确率基于验证集或测试集的评估结果 ******************** pie***/ init_echart("echart_models_accuracy_pie",'models.accuracy_pie','/config_visual/bi',{});</script>
+<div class="col-sm-5"><div class="default-echart-border"><div id="echart_models_accuracy_line" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的准确率基于验证集或测试集的评估结果 ******************** line***/ init_echart("echart_models_accuracy_line",'models.accuracy_line','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_models_accuracy_bar" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的准确率基于验证集或测试集的评估结果 ******************** bar***/ init_echart("echart_models_accuracy_bar",'models.accuracy_bar','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_models_accuracy_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的准确率基于验证集或测试集的评估结果 ******************** bar_v1***/ init_echart("echart_models_accuracy_bar_v1",'models.accuracy_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+</div>
+
+
+
+<div class="row">
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_models_createdat_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的创建时间训练完成时间 ******************** pie_v2***/ init_echart("echart_models_createdat_pie_v2",'models.createdat_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_models_createdat_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的创建时间训练完成时间 ******************** pie_v1***/ init_echart("echart_models_createdat_pie_v1",'models.createdat_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_models_createdat_pie" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的创建时间训练完成时间 ******************** pie***/ init_echart("echart_models_createdat_pie",'models.createdat_pie','/config_visual/bi',{});</script>
+<div class="col-sm-5"><div class="default-echart-border"><div id="echart_models_createdat_line" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的创建时间训练完成时间 ******************** line***/ init_echart("echart_models_createdat_line",'models.createdat_line','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_models_createdat_bar" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的创建时间训练完成时间 ******************** bar***/ init_echart("echart_models_createdat_bar",'models.createdat_bar','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_models_createdat_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的创建时间训练完成时间 ******************** bar_v1***/ init_echart("echart_models_createdat_bar_v1",'models.createdat_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+</div>
+
+
+
+<div class="row">
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_models_updatedat_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的最后更新时间如果有进一步的训练或调整 ******************** pie_v2***/ init_echart("echart_models_updatedat_pie_v2",'models.updatedat_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_models_updatedat_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的最后更新时间如果有进一步的训练或调整 ******************** pie_v1***/ init_echart("echart_models_updatedat_pie_v1",'models.updatedat_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_models_updatedat_pie" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的最后更新时间如果有进一步的训练或调整 ******************** pie***/ init_echart("echart_models_updatedat_pie",'models.updatedat_pie','/config_visual/bi',{});</script>
+<div class="col-sm-5"><div class="default-echart-border"><div id="echart_models_updatedat_line" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的最后更新时间如果有进一步的训练或调整 ******************** line***/ init_echart("echart_models_updatedat_line",'models.updatedat_line','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_models_updatedat_bar" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的最后更新时间如果有进一步的训练或调整 ******************** bar***/ init_echart("echart_models_updatedat_bar",'models.updatedat_bar','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_models_updatedat_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的最后更新时间如果有进一步的训练或调整 ******************** bar_v1***/ init_echart("echart_models_updatedat_bar_v1",'models.updatedat_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+</div>
+
+
+
+    </div>
+  </body>
+</html>

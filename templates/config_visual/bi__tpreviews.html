@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>beta_基于机器学习的电影评论情感分析与研究系统</title>
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/echarts.js"></script>
+    <style>
+      body {
+        color: black;
+      }
+      .bkimg {
+        background-image: url('/static/imgs/default.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: opacity(90%);
+        filter: brightness(10%);
+        overflow: hidden;
+      }
+      .myechart_size {
+        height: 450px;
+      }
+      .myechart_size-height-full {
+        with: 95%;
+        height: 480px;
+      }
+    </style>
+    
+    {% include 'config_visual/function_echart.html' %}
+  </head>
+  <body>
+    <div class="bg-image" style="{% include 'config_visual/background.html' %}">
+      <div class="row">
+        <div class="d-flex justify-content-center">
+          <h3 style="color:black; font-size: 30px; font-weight: bold;">beta_基于机器学习的电影评论情感分析与研究系统 评论表(reviews)</h3>
+        </div>
+      </div>
+      {% csrf_token %}
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_reviews_content_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的内容文本 ******************** pie_v2***/ init_echart("echart_reviews_content_pie_v2",'reviews.content_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_reviews_content_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的内容文本 ******************** pie_v1***/ init_echart("echart_reviews_content_pie_v1",'reviews.content_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_reviews_content_pie" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的内容文本 ******************** pie***/ init_echart("echart_reviews_content_pie",'reviews.content_pie','/config_visual/bi',{});</script>
+<div class="col-sm-5"><div class="default-echart-border"><div id="echart_reviews_content_line" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的内容文本 ******************** line***/ init_echart("echart_reviews_content_line",'reviews.content_line','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reviews_content_bar" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的内容文本 ******************** bar***/ init_echart("echart_reviews_content_bar",'reviews.content_bar','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reviews_content_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的内容文本 ******************** bar_v1***/ init_echart("echart_reviews_content_bar_v1",'reviews.content_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+</div>
+
+
+
+<div class="row">
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_reviews_sentiment_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的情感倾向如正面、负面或中立这可以是机器学习模型预测的结果 ******************** pie_v2***/ init_echart("echart_reviews_sentiment_pie_v2",'reviews.sentiment_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_reviews_sentiment_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的情感倾向如正面、负面或中立这可以是机器学习模型预测的结果 ******************** pie_v1***/ init_echart("echart_reviews_sentiment_pie_v1",'reviews.sentiment_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_reviews_sentiment_pie" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的情感倾向如正面、负面或中立这可以是机器学习模型预测的结果 ******************** pie***/ init_echart("echart_reviews_sentiment_pie",'reviews.sentiment_pie','/config_visual/bi',{});</script>
+<div class="col-sm-5"><div class="default-echart-border"><div id="echart_reviews_sentiment_line" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的情感倾向如正面、负面或中立这可以是机器学习模型预测的结果 ******************** line***/ init_echart("echart_reviews_sentiment_line",'reviews.sentiment_line','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reviews_sentiment_bar" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的情感倾向如正面、负面或中立这可以是机器学习模型预测的结果 ******************** bar***/ init_echart("echart_reviews_sentiment_bar",'reviews.sentiment_bar','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reviews_sentiment_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的情感倾向如正面、负面或中立这可以是机器学习模型预测的结果 ******************** bar_v1***/ init_echart("echart_reviews_sentiment_bar_v1",'reviews.sentiment_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+</div>
+
+
+
+<div class="row">
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_reviews_createdat_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的创建时间 ******************** pie_v2***/ init_echart("echart_reviews_createdat_pie_v2",'reviews.createdat_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_reviews_createdat_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的创建时间 ******************** pie_v1***/ init_echart("echart_reviews_createdat_pie_v1",'reviews.createdat_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_reviews_createdat_pie" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的创建时间 ******************** pie***/ init_echart("echart_reviews_createdat_pie",'reviews.createdat_pie','/config_visual/bi',{});</script>
+<div class="col-sm-5"><div class="default-echart-border"><div id="echart_reviews_createdat_line" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的创建时间 ******************** line***/ init_echart("echart_reviews_createdat_line",'reviews.createdat_line','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reviews_createdat_bar" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的创建时间 ******************** bar***/ init_echart("echart_reviews_createdat_bar",'reviews.createdat_bar','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reviews_createdat_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的创建时间 ******************** bar_v1***/ init_echart("echart_reviews_createdat_bar_v1",'reviews.createdat_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+</div>
+
+
+
+<div class="row">
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_reviews_updatedat_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的最后更新时间如果允许编辑的话 ******************** pie_v2***/ init_echart("echart_reviews_updatedat_pie_v2",'reviews.updatedat_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_reviews_updatedat_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的最后更新时间如果允许编辑的话 ******************** pie_v1***/ init_echart("echart_reviews_updatedat_pie_v1",'reviews.updatedat_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_reviews_updatedat_pie" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的最后更新时间如果允许编辑的话 ******************** pie***/ init_echart("echart_reviews_updatedat_pie",'reviews.updatedat_pie','/config_visual/bi',{});</script>
+<div class="col-sm-5"><div class="default-echart-border"><div id="echart_reviews_updatedat_line" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的最后更新时间如果允许编辑的话 ******************** line***/ init_echart("echart_reviews_updatedat_line",'reviews.updatedat_line','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reviews_updatedat_bar" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的最后更新时间如果允许编辑的话 ******************** bar***/ init_echart("echart_reviews_updatedat_bar",'reviews.updatedat_bar','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reviews_updatedat_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的最后更新时间如果允许编辑的话 ******************** bar_v1***/ init_echart("echart_reviews_updatedat_bar_v1",'reviews.updatedat_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+</div>
+
+
+
+    </div>
+  </body>
+</html>

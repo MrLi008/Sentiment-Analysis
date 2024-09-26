@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>beta_基于机器学习的电影评论情感分析与研究系统</title>
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/echarts.js"></script>
+    <style>
+      body {
+        color: black;
+      }
+      .bkimg {
+        background-image: url('/static/imgs/default.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: opacity(90%);
+        filter: brightness(10%);
+        overflow: hidden;
+      }
+      .myechart_size {
+        height: 450px;
+      }
+      .myechart_size-height-full {
+        with: 95%;
+        height: 480px;
+      }
+    </style>
+    
+    {% include 'config_visual/function_echart.html' %}
+  </head>
+  <body>
+    <div class="bg-image" style="{% include 'config_visual/background.html' %}">
+      <div class="row">
+        <div class="d-flex justify-content-center">
+          <h3 style="color:black; font-size: 30px; font-weight: bold;">beta_基于机器学习的电影评论情感分析与研究系统 训练数据集表(trainingdata)</h3>
+        </div>
+      </div>
+      {% csrf_token %}
+
+
+
+
+
+<div class="row">
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_trainingdata_reviewcontent_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 训练数据集表 训练数据中的评论内容文本 ******************** pie_v2***/ init_echart("echart_trainingdata_reviewcontent_pie_v2",'trainingdata.reviewcontent_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_trainingdata_reviewcontent_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 训练数据集表 训练数据中的评论内容文本 ******************** pie_v1***/ init_echart("echart_trainingdata_reviewcontent_pie_v1",'trainingdata.reviewcontent_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_trainingdata_reviewcontent_pie" class="myechart_size"></div></div></div>
+<script>/*** 训练数据集表 训练数据中的评论内容文本 ******************** pie***/ init_echart("echart_trainingdata_reviewcontent_pie",'trainingdata.reviewcontent_pie','/config_visual/bi',{});</script>
+<div class="col-sm-5"><div class="default-echart-border"><div id="echart_trainingdata_reviewcontent_line" class="myechart_size"></div></div></div>
+<script>/*** 训练数据集表 训练数据中的评论内容文本 ******************** line***/ init_echart("echart_trainingdata_reviewcontent_line",'trainingdata.reviewcontent_line','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_trainingdata_reviewcontent_bar" class="myechart_size"></div></div></div>
+<script>/*** 训练数据集表 训练数据中的评论内容文本 ******************** bar***/ init_echart("echart_trainingdata_reviewcontent_bar",'trainingdata.reviewcontent_bar','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_trainingdata_reviewcontent_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 训练数据集表 训练数据中的评论内容文本 ******************** bar_v1***/ init_echart("echart_trainingdata_reviewcontent_bar_v1",'trainingdata.reviewcontent_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+</div>
+
+
+
+<div class="row">
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_trainingdata_sentimentlabel_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 训练数据集表 情感标签用于监督学习如正面为1负面为0 ******************** pie_v2***/ init_echart("echart_trainingdata_sentimentlabel_pie_v2",'trainingdata.sentimentlabel_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_trainingdata_sentimentlabel_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 训练数据集表 情感标签用于监督学习如正面为1负面为0 ******************** pie_v1***/ init_echart("echart_trainingdata_sentimentlabel_pie_v1",'trainingdata.sentimentlabel_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_trainingdata_sentimentlabel_pie" class="myechart_size"></div></div></div>
+<script>/*** 训练数据集表 情感标签用于监督学习如正面为1负面为0 ******************** pie***/ init_echart("echart_trainingdata_sentimentlabel_pie",'trainingdata.sentimentlabel_pie','/config_visual/bi',{});</script>
+<div class="col-sm-5"><div class="default-echart-border"><div id="echart_trainingdata_sentimentlabel_line" class="myechart_size"></div></div></div>
+<script>/*** 训练数据集表 情感标签用于监督学习如正面为1负面为0 ******************** line***/ init_echart("echart_trainingdata_sentimentlabel_line",'trainingdata.sentimentlabel_line','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_trainingdata_sentimentlabel_bar" class="myechart_size"></div></div></div>
+<script>/*** 训练数据集表 情感标签用于监督学习如正面为1负面为0 ******************** bar***/ init_echart("echart_trainingdata_sentimentlabel_bar",'trainingdata.sentimentlabel_bar','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_trainingdata_sentimentlabel_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 训练数据集表 情感标签用于监督学习如正面为1负面为0 ******************** bar_v1***/ init_echart("echart_trainingdata_sentimentlabel_bar_v1",'trainingdata.sentimentlabel_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+</div>
+
+
+
+
+
+
+    </div>
+  </body>
+</html>

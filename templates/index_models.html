@@ -1,0 +1,165 @@
+{% extends 'tp.html' %}
+
+{% block title %}
+beta_基于机器学习的电影评论情感分析与研究系统
+
+{% endblock %}
+{% block header-image %}
+
+{% endblock %}
+
+{% block body %}
+
+<h1 hidden>
+    标注-用于区分表名
+模型表
+</h1>
+
+<div class="container my-container-margin">
+    <div class="row">
+        <div class="col s6">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                模型表
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container my-container-margin">
+    <div class="tab-content" id="myTabContent">
+        
+<div class="tab-pane fade show " id="t-3424-tab-pane" role="tabpanel" aria-labelledby="t-3424-tab" tabindex="0">
+系统管理员
+<div>
+<a href="/config_busi/supermanager" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-3423-tab-pane" role="tabpanel" aria-labelledby="t-3423-tab" tabindex="0">
+预测结果表
+<div>
+<a href="/config_busi/predictions" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-3422-tab-pane" role="tabpanel" aria-labelledby="t-3422-tab" tabindex="0">
+模型表
+<div>
+<a href="/config_busi/models" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-3421-tab-pane" role="tabpanel" aria-labelledby="t-3421-tab" tabindex="0">
+训练数据集表
+<div>
+<a href="/config_busi/trainingdata" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-3420-tab-pane" role="tabpanel" aria-labelledby="t-3420-tab" tabindex="0">
+评论表
+<div>
+<a href="/config_busi/reviews" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-3419-tab-pane" role="tabpanel" aria-labelledby="t-3419-tab" tabindex="0">
+电影表
+<div>
+<a href="/config_busi/movies" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-3418-tab-pane" role="tabpanel" aria-labelledby="t-3418-tab" tabindex="0">
+用户表
+<div>
+<a href="/config_busi/users" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+
+    </div>
+</div>
+
+
+        {% if mcauthfield_modelid.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="modelid" class="form-label form-group">模型的唯一标识符</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_modelname.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="modelname" class="form-label form-group">模型的名称或版本信息</label>
+
+<input type="text" class="form-control form-control-lg" name="modelname" id="modelname"{% if not mcauthfield_modelname.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_trainingdataid.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="trainingdataid" class="form-label form-group">用于训练该模型的数据集ID关联到训练数据集</label>
+
+<select class="form-select form-select-lg mb-3" name="trainingdataid" id="trainingdataid" {% if not mcauthfield_trainingdataid.mcisblank %}required {% endif %} data-name="insert"> <option value="" selected>未选择</option> {% for record in data_mc_trainingdata_18454 %} 
+<option value="{{record.value}}">
+
+<p>{{record.value}}:{{record.label }}</p>
+
+</option>
+ {% endfor %}
+</select>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_accuracy.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="accuracy" class="form-label form-group">模型的准确率基于验证集或测试集的评估结果</label>
+
+<input type="text" class="form-control form-control-lg" name="accuracy" id="accuracy"{% if not mcauthfield_accuracy.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_createdat.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="createdat" class="form-label form-group">模型的创建时间训练完成时间</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_updatedat.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="updatedat" class="form-label form-group">模型的最后更新时间如果有进一步的训练或调整</label>
+
+</div>
+        {% endif %}
+
+{% endblock %}
+
+{% block footer %}
+
+CopyRight ©beta_基于机器学习的电影评论情感分析与研究系统 vm432_bf0a45f882b27e8f
+
+{% endblock %}
+
+{% block script-footer %}
+
+{% endblock %}
+

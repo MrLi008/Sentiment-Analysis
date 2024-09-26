@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>beta_基于机器学习的电影评论情感分析与研究系统</title>
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/echarts.js"></script>
+    <style>
+      body {
+        color: black;
+      }
+      .myechart_size {
+        height: 450px;
+        border: 1px solid #000;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        margin: 10px;
+        background-color: rgba(0, 150, 255, 0.3);
+      }
+    </style>
+    {% include 'config_visual/function_echart.html' %}
+    <!-- echart-json -->
+    {% include 'config_visual/echart-json.html' %}
+  </head>
+  <body>
+    <div >
+      <div class="row">
+        <div class="d-flex justify-content-center">
+          <h3 style="color:black; font-size: 30px; font-weight: bold;">beta_基于机器学习的电影评论情感分析与研究系统</h3>
+        </div>
+      </div>
+      {% csrf_token %}
+<div class="row">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_predictions_predictedsentiment_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 预测结果表 预测的情感倾向结果 ******************** pie_v2***/ init_echart("echart_predictions_predictedsentiment_pie_v2",'predictions.predictedsentiment_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_predictions_predictedsentiment_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 预测结果表 预测的情感倾向结果 ******************** pie_v1***/ init_echart("echart_predictions_predictedsentiment_pie_v1",'predictions.predictedsentiment_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_predictions_predictedsentiment_pie" class="myechart_size"></div></div></div>
+<script>/*** 预测结果表 预测的情感倾向结果 ******************** pie***/ init_echart("echart_predictions_predictedsentiment_pie",'predictions.predictedsentiment_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_predictions_predictedsentiment_line" class="myechart_size"></div></div></div>
+<script>/*** 预测结果表 预测的情感倾向结果 ******************** line***/ init_echart("echart_predictions_predictedsentiment_line",'predictions.predictedsentiment_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_predictions_predictedsentiment_bar" class="myechart_size"></div></div></div>
+<script>/*** 预测结果表 预测的情感倾向结果 ******************** bar***/ init_echart("echart_predictions_predictedsentiment_bar",'predictions.predictedsentiment_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_predictions_predictedsentiment_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 预测结果表 预测的情感倾向结果 ******************** bar_v1***/ init_echart("echart_predictions_predictedsentiment_bar_v1",'predictions.predictedsentiment_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_predictions_createdat_line" class="myechart_size"></div></div></div>
+<script>/*** 预测结果表 预测结果的创建时间 ******************** line***/ init_echart("echart_predictions_createdat_line",'predictions.createdat_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_models_modelname_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的名称或版本信息 ******************** pie_v2***/ init_echart("echart_models_modelname_pie_v2",'models.modelname_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_models_modelname_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的名称或版本信息 ******************** pie_v1***/ init_echart("echart_models_modelname_pie_v1",'models.modelname_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_models_modelname_pie" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的名称或版本信息 ******************** pie***/ init_echart("echart_models_modelname_pie",'models.modelname_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_models_modelname_line" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的名称或版本信息 ******************** line***/ init_echart("echart_models_modelname_line",'models.modelname_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_models_modelname_bar" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的名称或版本信息 ******************** bar***/ init_echart("echart_models_modelname_bar",'models.modelname_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_models_modelname_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的名称或版本信息 ******************** bar_v1***/ init_echart("echart_models_modelname_bar_v1",'models.modelname_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_models_accuracy_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的准确率基于验证集或测试集的评估结果 ******************** pie_v2***/ init_echart("echart_models_accuracy_pie_v2",'models.accuracy_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_models_accuracy_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的准确率基于验证集或测试集的评估结果 ******************** pie_v1***/ init_echart("echart_models_accuracy_pie_v1",'models.accuracy_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_models_accuracy_pie" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的准确率基于验证集或测试集的评估结果 ******************** pie***/ init_echart("echart_models_accuracy_pie",'models.accuracy_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_models_accuracy_line" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的准确率基于验证集或测试集的评估结果 ******************** line***/ init_echart("echart_models_accuracy_line",'models.accuracy_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_models_accuracy_bar" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的准确率基于验证集或测试集的评估结果 ******************** bar***/ init_echart("echart_models_accuracy_bar",'models.accuracy_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_models_accuracy_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的准确率基于验证集或测试集的评估结果 ******************** bar_v1***/ init_echart("echart_models_accuracy_bar_v1",'models.accuracy_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_models_createdat_line" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的创建时间训练完成时间 ******************** line***/ init_echart("echart_models_createdat_line",'models.createdat_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_models_updatedat_line" class="myechart_size"></div></div></div>
+<script>/*** 模型表 模型的最后更新时间如果有进一步的训练或调整 ******************** line***/ init_echart("echart_models_updatedat_line",'models.updatedat_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-4">
+<p>
+训练数据集表-训练数据中的评论内容文本 词云
+</p>
+<img src="" alt="" id="trainingdata.reviewcontent_wordcloud" style="
+width: 100%;
+height: auto;
+margin-top: 55px;
+margin-left: 15px;">
+</div>
+<script>
+get_img_src('trainingdata.reviewcontent_wordcloud');
+</script>
+<!--comment </div> -->
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_trainingdata_sentimentlabel_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 训练数据集表 情感标签用于监督学习如正面为1负面为0 ******************** pie_v2***/ init_echart("echart_trainingdata_sentimentlabel_pie_v2",'trainingdata.sentimentlabel_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_trainingdata_sentimentlabel_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 训练数据集表 情感标签用于监督学习如正面为1负面为0 ******************** pie_v1***/ init_echart("echart_trainingdata_sentimentlabel_pie_v1",'trainingdata.sentimentlabel_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_trainingdata_sentimentlabel_pie" class="myechart_size"></div></div></div>
+<script>/*** 训练数据集表 情感标签用于监督学习如正面为1负面为0 ******************** pie***/ init_echart("echart_trainingdata_sentimentlabel_pie",'trainingdata.sentimentlabel_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_trainingdata_sentimentlabel_line" class="myechart_size"></div></div></div>
+<script>/*** 训练数据集表 情感标签用于监督学习如正面为1负面为0 ******************** line***/ init_echart("echart_trainingdata_sentimentlabel_line",'trainingdata.sentimentlabel_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_trainingdata_sentimentlabel_bar" class="myechart_size"></div></div></div>
+<script>/*** 训练数据集表 情感标签用于监督学习如正面为1负面为0 ******************** bar***/ init_echart("echart_trainingdata_sentimentlabel_bar",'trainingdata.sentimentlabel_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_trainingdata_sentimentlabel_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 训练数据集表 情感标签用于监督学习如正面为1负面为0 ******************** bar_v1***/ init_echart("echart_trainingdata_sentimentlabel_bar_v1",'trainingdata.sentimentlabel_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-4">
+<p>
+评论表-评论的内容文本 词云
+</p>
+<img src="" alt="" id="reviews.content_wordcloud" style="
+width: 100%;
+height: auto;
+margin-top: 55px;
+margin-left: 15px;">
+</div>
+<script>
+get_img_src('reviews.content_wordcloud');
+</script>
+<!--comment </div> -->
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-4">
+<p>
+评论表-评论的情感倾向如正面、负面或中立这可以是机器学习模型预测的结果 词云
+</p>
+<img src="" alt="" id="reviews.sentiment_wordcloud" style="
+width: 100%;
+height: auto;
+margin-top: 55px;
+margin-left: 15px;">
+</div>
+<script>
+get_img_src('reviews.sentiment_wordcloud');
+</script>
+<!--comment </div> -->
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reviews_createdat_line" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的创建时间 ******************** line***/ init_echart("echart_reviews_createdat_line",'reviews.createdat_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_reviews_updatedat_line" class="myechart_size"></div></div></div>
+<script>/*** 评论表 评论的最后更新时间如果允许编辑的话 ******************** line***/ init_echart("echart_reviews_updatedat_line",'reviews.updatedat_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_movies_title_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的标题 ******************** pie_v2***/ init_echart("echart_movies_title_pie_v2",'movies.title_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_movies_title_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的标题 ******************** pie_v1***/ init_echart("echart_movies_title_pie_v1",'movies.title_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_movies_title_pie" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的标题 ******************** pie***/ init_echart("echart_movies_title_pie",'movies.title_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_movies_title_line" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的标题 ******************** line***/ init_echart("echart_movies_title_line",'movies.title_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_movies_title_bar" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的标题 ******************** bar***/ init_echart("echart_movies_title_bar",'movies.title_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_movies_title_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的标题 ******************** bar_v1***/ init_echart("echart_movies_title_bar_v1",'movies.title_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_movies_releasedate_line" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的发布日期 ******************** line***/ init_echart("echart_movies_releasedate_line",'movies.releasedate_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_movies_genre_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的类型如动作、喜剧、剧情等 ******************** pie_v2***/ init_echart("echart_movies_genre_pie_v2",'movies.genre_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_movies_genre_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的类型如动作、喜剧、剧情等 ******************** pie_v1***/ init_echart("echart_movies_genre_pie_v1",'movies.genre_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_movies_genre_pie" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的类型如动作、喜剧、剧情等 ******************** pie***/ init_echart("echart_movies_genre_pie",'movies.genre_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_movies_genre_line" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的类型如动作、喜剧、剧情等 ******************** line***/ init_echart("echart_movies_genre_line",'movies.genre_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_movies_genre_bar" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的类型如动作、喜剧、剧情等 ******************** bar***/ init_echart("echart_movies_genre_bar",'movies.genre_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_movies_genre_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的类型如动作、喜剧、剧情等 ******************** bar_v1***/ init_echart("echart_movies_genre_bar_v1",'movies.genre_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_movies_director_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影导演的名字 ******************** pie_v2***/ init_echart("echart_movies_director_pie_v2",'movies.director_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_movies_director_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影导演的名字 ******************** pie_v1***/ init_echart("echart_movies_director_pie_v1",'movies.director_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_movies_director_pie" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影导演的名字 ******************** pie***/ init_echart("echart_movies_director_pie",'movies.director_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_movies_director_line" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影导演的名字 ******************** line***/ init_echart("echart_movies_director_line",'movies.director_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_movies_director_bar" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影导演的名字 ******************** bar***/ init_echart("echart_movies_director_bar",'movies.director_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_movies_director_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影导演的名字 ******************** bar_v1***/ init_echart("echart_movies_director_bar_v1",'movies.director_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_movies_cast_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的主要演员列 ******************** pie_v2***/ init_echart("echart_movies_cast_pie_v2",'movies.cast_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_movies_cast_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的主要演员列 ******************** pie_v1***/ init_echart("echart_movies_cast_pie_v1",'movies.cast_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_movies_cast_pie" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的主要演员列 ******************** pie***/ init_echart("echart_movies_cast_pie",'movies.cast_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_movies_cast_line" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的主要演员列 ******************** line***/ init_echart("echart_movies_cast_line",'movies.cast_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_movies_cast_bar" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的主要演员列 ******************** bar***/ init_echart("echart_movies_cast_bar",'movies.cast_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_movies_cast_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的主要演员列 ******************** bar_v1***/ init_echart("echart_movies_cast_bar_v1",'movies.cast_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_movies_rating_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的评分可以是用户评分的平均值 ******************** pie_v2***/ init_echart("echart_movies_rating_pie_v2",'movies.rating_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_movies_rating_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的评分可以是用户评分的平均值 ******************** pie_v1***/ init_echart("echart_movies_rating_pie_v1",'movies.rating_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_movies_rating_pie" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的评分可以是用户评分的平均值 ******************** pie***/ init_echart("echart_movies_rating_pie",'movies.rating_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_movies_rating_line" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的评分可以是用户评分的平均值 ******************** line***/ init_echart("echart_movies_rating_line",'movies.rating_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_movies_rating_bar" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的评分可以是用户评分的平均值 ******************** bar***/ init_echart("echart_movies_rating_bar",'movies.rating_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_movies_rating_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的评分可以是用户评分的平均值 ******************** bar_v1***/ init_echart("echart_movies_rating_bar_v1",'movies.rating_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+
+
+
+
+
+<!-- <div class="row"> -->
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_users_username_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户名用于登录和识别用户 ******************** pie_v2***/ init_echart("echart_users_username_pie_v2",'users.username_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_users_username_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户名用于登录和识别用户 ******************** pie_v1***/ init_echart("echart_users_username_pie_v1",'users.username_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-2"><div class="default-echart-border"><div id="echart_users_username_pie" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户名用于登录和识别用户 ******************** pie***/ init_echart("echart_users_username_pie",'users.username_pie','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_users_username_line" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户名用于登录和识别用户 ******************** line***/ init_echart("echart_users_username_line",'users.username_line','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_users_username_bar" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户名用于登录和识别用户 ******************** bar***/ init_echart("echart_users_username_bar",'users.username_bar','/config_visual/bi',{});</script>
+<div class="col-sm-6"><div class="default-echart-border"><div id="echart_users_username_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户名用于登录和识别用户 ******************** bar_v1***/ init_echart("echart_users_username_bar_v1",'users.username_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+
+
+
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_users_createdat_line" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户账户的创建时间 ******************** line***/ init_echart("echart_users_createdat_line",'users.createdat_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+<!--comment <div class="row"> -->
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_users_updatedat_line" class="myechart_size"></div></div></div>
+<script>/*** 用户表 用户账户的最后更新时间 ******************** line***/ init_echart("echart_users_updatedat_line",'users.updatedat_line','/config_visual/bi',{});</script>
+<!--comment </div> -->
+
+
+
+</div>
+
+      
+    </div>
+  </body>
+</html>

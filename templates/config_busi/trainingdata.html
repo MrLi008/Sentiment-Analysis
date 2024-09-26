@@ -1,0 +1,552 @@
+{% extends '../tp.html' %}
+
+{% block title %}
+训练数据集表
+{% endblock %}
+
+{% block body %}
+  <div class="my-container-margin">
+    <div class="divider"></div>
+    {% csrf_token %}
+    <div class="section">
+      <h4>训练数据集表</h4>
+      <div>
+        <div class="row">
+          
+          {% if has_add %}
+            <button type="button" data-bs-toggle="modal" data-bs-target="#modalinsert" class="waves-effect waves-light btn">添加</button>
+          {% endif %}
+          <div class="divider"></div>
+        
+        
+          
+<div class="col-sm-10">
+</div>
+<div class="col-sm-2">
+<a href="/config_visual/bi_tptrainingdata" target="_blank" class="waves-effect waves-light btn">
+统计分析
+</a>
+</div>
+        </div>  
+        <div class="section">
+          {% if record %}
+            <h3>Empty Data</h3>
+          {% else %}
+          
+<div class="row">
+<form action="" method="get">
+
+
+
+
+
+
+
+
+
+<div class="col-sm-2">
+<button type="submit" class="btn btn-primary" >
+<i class="fas fa-search">搜索</i>
+</button>
+<a type="reset" class="btn btn-default" href="/config_busi/trainingdata">
+<i class="fas fa-eraser">重置</i>
+</a>
+</div>
+</form>
+
+          </div>
+            <table class="table table-striped table-hover table-bordered">
+              <thead>
+                <tr>
+                  
+{% if mcauthfield_dataid.mcauthview %}
+<td>
+训练数据条目的唯一标识符
+</td>
+{% endif %}
+
+{% if mcauthfield_reviewcontent.mcauthview %}
+<td>
+训练数据中的评论内容文本
+</td>
+{% endif %}
+
+{% if mcauthfield_sentimentlabel.mcauthview %}
+<td>
+情感标签用于监督学习如正面为1负面为0
+</td>
+{% endif %}
+
+{% if mcauthfield_usedfortraining.mcauthview %}
+<td>
+示该数据条目是否已被用于模型训练
+</td>
+{% endif %}
+<th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for record in records %}
+                  <tr>
+                    
+ {% if mcauthfield_dataid.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.dataid}}">
+{{record.dataid}}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_reviewcontent.mcauthview %}
+<td class="text-nowrap-cell">
+
+{% if record.reviewcontent %}
+{{record.reviewcontent.name}}
+<p title="{{record.reviewcontent}}">
+{{record.reviewcontent|truncatechars:20}}
+</p>
+{% endif %}
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_sentimentlabel.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.sentimentlabel}}">
+{{record.sentimentlabel}}
+</p>
+
+</td>
+{% endif %}
+ 
+ {% if mcauthfield_usedfortraining.mcauthview %}
+<td class="text-nowrap-cell">
+
+<p title="{{record.usedfortraining}}">
+{{record.usedfortraining}}
+</p>
+
+</td>
+{% endif %}
+ <td>
+                      {% if has_upd %}
+                        <button data-bs-data="{{ record.id }}" data-bs-toggle="modal" data-bs-target="#modalupdate">修改</button>
+                      {% endif %}
+                      {% if has_del %}
+                        <button data-bs-data="{{ record.id }}" data-bs-toggle="modal" data-bs-target="#modalremove">删除</button>
+                      {% endif %}
+                      {% if has_view %}
+                        <button data-bs-data="{{ record.id }}" data-bs-toggle="modal" data-bs-target="#modalpreview">查看</button>
+                      {% endif %}
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block modal %}
+  <!-- Modal Structure -->
+
+  {% if has_add %}
+    <div id="modalinsert" class="modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-custom">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-title">
+              <h4>添加</h4>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="">
+              <form action="" method="post" enctype="multipart/form-data" class="col s12">
+                <input type="text" name="optype" value="add" hidden />{% csrf_token %}<div class="">
+        {% if mcauthfield_dataid.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="dataid" class="form-label form-group">训练数据条目的唯一标识符</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_reviewcontent.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="reviewcontent" class="form-label form-group">训练数据中的评论内容文本</label>
+
+<textarea class="form-control form-control-lg" name="reviewcontent" id="reviewcontent" {% if not mcauthfield_reviewcontent.mcisblank %}required {% endif %}data-name="insert"></textarea>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_sentimentlabel.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="sentimentlabel" class="form-label form-group">情感标签用于监督学习如正面为1负面为0</label>
+
+<input type="text" class="form-control form-control-lg" name="sentimentlabel" id="sentimentlabel"{% if not mcauthfield_sentimentlabel.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_usedfortraining.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="usedfortraining" class="form-label form-group">示该数据条目是否已被用于模型训练</label>
+
+<select class="form-select form-select-lg mb-3" name="usedfortraining" id="usedfortraining" {% if not mcauthfield_usedfortraining.mcisblank %}required {% endif %} data-name="insert">
+<option value="True" selected >是</option>
+<option value="False">否</option>
+</select>
+
+</div>
+        {% endif %}
+</div>
+                <div class="modal-footer">
+                  <button type="submit" class="modal-action modal-close btn-primary btn waves-effect waves-light">提交</button>
+                  <button type="reset" class="modal-action modal-close btn-default btn waves-effect waves-light" data-bs-dismiss="modal">取消</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% if has_upd %}
+    <div id="modalupdate" class="modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-custom">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="modal-title">修改</div>
+          </div>
+          <div class="modal-body">
+            <div class="">
+              <form action="" method="post" enctype="multipart/form-data" class="col s12">
+                <input type="text" name="optype" value="upd" hidden />{% csrf_token %}<input type="text" name="_id_upd" value="" data-name="update_id" hidden />
+                <div class="">
+           {% if mcauthfield_dataid.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="dataid_upd"
+class="form-label form-group">
+训练数据条目的唯一标识符(dataid)
+</label>
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_reviewcontent.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="reviewcontent_upd"
+class="form-label form-group">
+训练数据中的评论内容文本(reviewcontent)
+</label>
+
+<textarea type="text" class="validate form-control form-control-lg"
+name="reviewcontent"
+id="reviewcontent_upd"
+placeholder="训练数据中的评论内容文本"
+{% if not mcauthfield_reviewcontent.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_reviewcontent.mcauthchange %}
+readonly
+{% endif %}
+data-name="update"></textarea>
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_sentimentlabel.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="sentimentlabel_upd"
+class="form-label form-group">
+情感标签用于监督学习如正面为1负面为0(sentimentlabel)
+</label>
+
+<input type="text" class="validate form-control form-control-lg"
+name="sentimentlabel"
+id="sentimentlabel_upd"
+placeholder="情感标签用于监督学习如正面为1负面为0"
+{% if not mcauthfield_sentimentlabel.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_sentimentlabel.mcauthchange %}
+readonly
+{% endif %}
+data-name="update">
+
+</div>
+        {% endif %}
+
+           {% if mcauthfield_usedfortraining.mcauthview %}
+<div class="input-field col s12 mb-3">
+        <label for="usedfortraining_upd"
+class="form-label form-group">
+示该数据条目是否已被用于模型训练(usedfortraining)
+</label>
+
+<select class="form-select form-select-lg mb-3" name="usedfortraining"
+id="usedfortraining_upd"
+{% if not mcauthfield_usedfortraining.mcisblank %}
+required
+{% endif %}
+{% if not mcauthfield_usedfortraining.mcauthchange %}
+readonly
+{% endif %}
+data-name="update">
+<option value="True" selected>是</option>
+<option value="False">否</option>
+</select>
+
+</div>
+        {% endif %}
+</div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn modal-action modal-close btn-primary waves-effect waves-light">提交</button>
+                  <button type="reset" class="btn modal-action modal-close btn-default waves-effect waves-light" data-bs-dismiss="modal">取消</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% if has_del %}
+    <div id="modalremove" class="modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-custom">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">删除</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>确认删除这条记录吗?</p>
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+              <form action="" method="post" enctype="multipart/form-data" class="col s12">
+                <input type="text" name="optype" value="del" hidden />{% csrf_token %}<input type="text" name="_id" value="" data-name="remove" hidden />
+
+                <div class="modal-footer">
+                  <button type="submit" class="btn modal-action modal-close btn-primary waves-effect waves-light">确认</button>
+                  <button type="reset" class="btn modal-action modal-close btn-default waves-effect waves-light" data-bs-dismiss="modal">取消</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% if has_view %}
+    <div id="modalpreview" class="modal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-custom">
+        <div class="modal-content">
+          <h4>预览</h4>
+          <div class="">
+            
+{% if mcauthfield_dataid.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">训练数据条目的唯一标识符</p>
+
+<p id="dataid_view">
+{{record.dataid|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_reviewcontent.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">训练数据中的评论内容文本</p>
+
+<p id="reviewcontent_view">
+{{record.reviewcontent|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_sentimentlabel.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">情感标签用于监督学习如正面为1负面为0</p>
+
+<p id="sentimentlabel_view">
+{{record.sentimentlabel|safe }}
+</p>
+
+</div>
+{% endif %}
+
+{% if mcauthfield_usedfortraining.mcauthview  %}
+<div class="input-field col s12 mb-3">
+    <p class="text-bodyform-label">示该数据条目是否已被用于模型训练</p>
+
+<p id="usedfortraining_view">
+{{record.usedfortraining|safe }}
+</p>
+
+</div>
+{% endif %}
+<div class="modal-footer">
+              <button type="reset" class="btn modal-action modal-close btn-default waves-effect waves-light" data-bs-dismiss="modal">关闭</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block script-footer %}
+<script>
+  function myreset(){
+window.location.href= "/config_busi/trainingdata";
+};
+if (document.getElementById("modalupdate")){
+document.getElementById("modalupdate").addEventListener("show.bs.modal",event=>{
+let _id = event.relatedTarget.getAttribute('data-bs-data');
+$("input[data-name=update_id]").val(_id);
+$.ajax({
+url: '/config_busi/trainingdata',
+method: 'post',
+data: {optype:'get',_id:_id,csrfmiddlewaretoken:document.querySelector('[name=csrfmiddlewaretoken]').value}, // JSON.stringify(data),
+dataType: 'json',
+success: resp => {
+
+{% if mcauthfield_dataid.mcauthview %}
+$("#dataid_upd").val(resp.ins.dataid);
+{% endif %}
+
+{% if mcauthfield_reviewcontent.mcauthview %}
+$("#reviewcontent_upd").val(resp.ins.reviewcontent);
+{% endif %}
+
+{% if mcauthfield_sentimentlabel.mcauthview %}
+$("#sentimentlabel_upd").val(resp.ins.sentimentlabel);
+{% endif %}
+
+{% if mcauthfield_usedfortraining.mcauthview %}
+$("#usedfortraining_upd").val(resp.ins.usedfortraining);
+{% endif %}
+
+},
+error: err => {
+},
+complete: res => {
+},
+})
+});
+};
+function upd(_id){
+let data = {
+optype:'get',
+_id:_id,csrfmiddlewaretoken:document.querySelector('[name=csrfmiddlewaretoken]').value,
+
+{% if mcauthfield_dataid.mcauthchange %}
+dataid:$("#dataid_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_reviewcontent.mcauthchange %}
+reviewcontent:$("#reviewcontent_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_sentimentlabel.mcauthchange %}
+sentimentlabel:$("#sentimentlabel_upd]").val(),
+{% endif %}
+
+{% if mcauthfield_usedfortraining.mcauthchange %}
+usedfortraining:$("#usedfortraining_upd]").val(),
+{% endif %}
+
+}
+$.ajax({
+url: '/config_busi/trainingdata',
+method: 'post',
+data: data,
+dataType: 'json',
+success: resp => {
+console.log(resp);
+},
+error: err => {
+},
+complete: res => {
+},
+})
+};
+if (document.getElementById("modalpreview")) {
+document.getElementById("modalpreview").addEventListener("show.bs.modal",event=>{
+let _id = event.relatedTarget.getAttribute('data-bs-data');
+$("input[data-name=update_id]").val(_id);
+$.ajax({
+url: '/config_busi/trainingdata',
+method: 'post',
+data: {optype:'get',_id:_id,csrfmiddlewaretoken:document.querySelector('[name=csrfmiddlewaretoken]').value}, // JSON.stringify(data),
+dataType: 'json',
+success: resp => {
+
+
+
+{% if mcauthfield_dataid.mcauthview %}
+document.getElementById("dataid_view").innerHTML=resp.ins.dataid;
+{% endif %}
+
+
+
+
+{% if mcauthfield_reviewcontent.mcauthview %}
+document.getElementById("reviewcontent_view").innerHTML=resp.ins.reviewcontent;
+{% endif %}
+
+
+
+
+{% if mcauthfield_sentimentlabel.mcauthview %}
+document.getElementById("sentimentlabel_view").innerHTML=resp.ins.sentimentlabel;
+{% endif %}
+
+
+
+
+{% if mcauthfield_usedfortraining.mcauthview %}
+document.getElementById("usedfortraining_view").innerHTML=resp.ins.usedfortraining;
+{% endif %}
+
+
+},
+error: err => {
+},
+complete: res => {
+},
+})
+});
+};
+if (document.getElementById("modalremove")) {
+document.getElementById("modalremove").addEventListener("show.bs.modal",event=>{
+let _id = event.relatedTarget.getAttribute('data-bs-data');
+$("input[data-name=remove]").val(_id);
+});
+};
+function del(_id){
+$.ajax({
+url: '/config_busi/trainingdata',
+method: 'post',
+data: {optype:'del',_id:_id,csrfmiddlewaretoken:document.querySelector('[name=csrfmiddlewaretoken]').value}, // JSON.stringify(data),
+dataType: 'json',
+success: resp => {
+console.log(resp);
+},
+error: err => {
+},
+complete: res => {
+},
+})
+};
+</script>
+{% endblock %}

@@ -1,0 +1,202 @@
+{% extends 'tp_2.html' %}
+
+{% block title %}
+beta_基于机器学习的电影评论情感分析与研究系统
+
+{% endblock %}
+{% block header-image %}
+{% include 'header-image.html' %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class="my-container-margin">
+    <div class="dorpdown">
+        <button class="btn btn-secondary dropdown-toggle" 
+         type="button" id="dropdownMenuButton" 
+         data-bs-toggle="dropdown" 
+         aria-haspopup="true" 
+         aria-expanded="false">
+         数据表管理
+        </button>
+        <ul class="dropdown-menu nav nav-tabs" id="myTab" role="tablist" aria-labelledby="dropdownMenuButton">  
+                
+
+<li class="nav-item" role="presentation">
+<button class="nav-link "
+id="t-3424-tab"
+data-bs-toggle="tab" data-bs-target="#t-3424-tab-pane"
+type="button" role="tab" aria-controls="t-3424-tab-pane"
+aria-selected="true">
+系统管理员
+</button>
+</li>
+
+<li class="nav-item" role="presentation">
+<button class="nav-link "
+id="t-3423-tab"
+data-bs-toggle="tab" data-bs-target="#t-3423-tab-pane"
+type="button" role="tab" aria-controls="t-3423-tab-pane"
+aria-selected="true">
+预测结果表
+</button>
+</li>
+
+<li class="nav-item" role="presentation">
+<button class="nav-link "
+id="t-3422-tab"
+data-bs-toggle="tab" data-bs-target="#t-3422-tab-pane"
+type="button" role="tab" aria-controls="t-3422-tab-pane"
+aria-selected="true">
+模型表
+</button>
+</li>
+
+<li class="nav-item" role="presentation">
+<button class="nav-link "
+id="t-3421-tab"
+data-bs-toggle="tab" data-bs-target="#t-3421-tab-pane"
+type="button" role="tab" aria-controls="t-3421-tab-pane"
+aria-selected="true">
+训练数据集表
+</button>
+</li>
+
+<li class="nav-item" role="presentation">
+<button class="nav-link "
+id="t-3420-tab"
+data-bs-toggle="tab" data-bs-target="#t-3420-tab-pane"
+type="button" role="tab" aria-controls="t-3420-tab-pane"
+aria-selected="true">
+评论表
+</button>
+</li>
+
+<li class="nav-item" role="presentation">
+<button class="nav-link "
+id="t-3419-tab"
+data-bs-toggle="tab" data-bs-target="#t-3419-tab-pane"
+type="button" role="tab" aria-controls="t-3419-tab-pane"
+aria-selected="true">
+电影表
+</button>
+</li>
+
+<li class="nav-item" role="presentation">
+<button class="nav-link "
+id="t-3418-tab"
+data-bs-toggle="tab" data-bs-target="#t-3418-tab-pane"
+type="button" role="tab" aria-controls="t-3418-tab-pane"
+aria-selected="true">
+用户表
+</button>
+</li>
+
+
+        </ul>
+    </div>
+</div>
+<div class="my-container-margin">
+    <div class="tab-content" id="myTabContent">
+        
+<div class="tab-pane fade show " id="t-3424-tab-pane" role="tabpanel" aria-labelledby="t-3424-tab" tabindex="0">
+系统管理员
+<div>
+<a href="/config_busi/supermanager" target="_blank">
+查看数据v2
+</a>
+</div>
+<div class="">
+{% include 'tp_table_v2.html' with ins=tab_mc_supermanager %}
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-3423-tab-pane" role="tabpanel" aria-labelledby="t-3423-tab" tabindex="0">
+预测结果表
+<div>
+<a href="/config_busi/predictions" target="_blank">
+查看数据v2
+</a>
+</div>
+<div class="">
+{% include 'tp_table_v2.html' with ins=tab_mc_predictions %}
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-3422-tab-pane" role="tabpanel" aria-labelledby="t-3422-tab" tabindex="0">
+模型表
+<div>
+<a href="/config_busi/models" target="_blank">
+查看数据v2
+</a>
+</div>
+<div class="">
+{% include 'tp_table_v2.html' with ins=tab_mc_models %}
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-3421-tab-pane" role="tabpanel" aria-labelledby="t-3421-tab" tabindex="0">
+训练数据集表
+<div>
+<a href="/config_busi/trainingdata" target="_blank">
+查看数据v2
+</a>
+</div>
+<div class="">
+{% include 'tp_table_v2.html' with ins=tab_mc_trainingdata %}
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-3420-tab-pane" role="tabpanel" aria-labelledby="t-3420-tab" tabindex="0">
+评论表
+<div>
+<a href="/config_busi/reviews" target="_blank">
+查看数据v2
+</a>
+</div>
+<div class="">
+{% include 'tp_table_v2.html' with ins=tab_mc_reviews %}
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-3419-tab-pane" role="tabpanel" aria-labelledby="t-3419-tab" tabindex="0">
+电影表
+<div>
+<a href="/config_busi/movies" target="_blank">
+查看数据v2
+</a>
+</div>
+<div class="">
+{% include 'tp_table_v2.html' with ins=tab_mc_movies %}
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-3418-tab-pane" role="tabpanel" aria-labelledby="t-3418-tab" tabindex="0">
+用户表
+<div>
+<a href="/config_busi/users" target="_blank">
+查看数据v2
+</a>
+</div>
+<div class="">
+{% include 'tp_table_v2.html' with ins=tab_mc_users %}
+</div>
+</div>
+
+
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+
+CopyRight ©beta_基于机器学习的电影评论情感分析与研究系统
+
+{% endblock %}
+
+{% block script-footer %}
+
+{% endblock %}

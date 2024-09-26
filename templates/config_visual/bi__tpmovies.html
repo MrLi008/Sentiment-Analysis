@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>beta_基于机器学习的电影评论情感分析与研究系统</title>
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/echarts.js"></script>
+    <style>
+      body {
+        color: black;
+      }
+      .bkimg {
+        background-image: url('/static/imgs/default.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: opacity(90%);
+        filter: brightness(10%);
+        overflow: hidden;
+      }
+      .myechart_size {
+        height: 450px;
+      }
+      .myechart_size-height-full {
+        with: 95%;
+        height: 480px;
+      }
+    </style>
+    
+    {% include 'config_visual/function_echart.html' %}
+  </head>
+  <body>
+    <div class="bg-image" style="{% include 'config_visual/background.html' %}">
+      <div class="row">
+        <div class="d-flex justify-content-center">
+          <h3 style="color:black; font-size: 30px; font-weight: bold;">beta_基于机器学习的电影评论情感分析与研究系统 电影表(movies)</h3>
+        </div>
+      </div>
+      {% csrf_token %}
+
+
+
+
+
+<div class="row">
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_movies_title_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的标题 ******************** pie_v2***/ init_echart("echart_movies_title_pie_v2",'movies.title_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_movies_title_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的标题 ******************** pie_v1***/ init_echart("echart_movies_title_pie_v1",'movies.title_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_movies_title_pie" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的标题 ******************** pie***/ init_echart("echart_movies_title_pie",'movies.title_pie','/config_visual/bi',{});</script>
+<div class="col-sm-5"><div class="default-echart-border"><div id="echart_movies_title_line" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的标题 ******************** line***/ init_echart("echart_movies_title_line",'movies.title_line','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_movies_title_bar" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的标题 ******************** bar***/ init_echart("echart_movies_title_bar",'movies.title_bar','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_movies_title_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的标题 ******************** bar_v1***/ init_echart("echart_movies_title_bar_v1",'movies.title_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+</div>
+
+
+
+<div class="row">
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_movies_releasedate_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的发布日期 ******************** pie_v2***/ init_echart("echart_movies_releasedate_pie_v2",'movies.releasedate_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_movies_releasedate_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的发布日期 ******************** pie_v1***/ init_echart("echart_movies_releasedate_pie_v1",'movies.releasedate_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_movies_releasedate_pie" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的发布日期 ******************** pie***/ init_echart("echart_movies_releasedate_pie",'movies.releasedate_pie','/config_visual/bi',{});</script>
+<div class="col-sm-5"><div class="default-echart-border"><div id="echart_movies_releasedate_line" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的发布日期 ******************** line***/ init_echart("echart_movies_releasedate_line",'movies.releasedate_line','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_movies_releasedate_bar" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的发布日期 ******************** bar***/ init_echart("echart_movies_releasedate_bar",'movies.releasedate_bar','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_movies_releasedate_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的发布日期 ******************** bar_v1***/ init_echart("echart_movies_releasedate_bar_v1",'movies.releasedate_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+</div>
+
+
+
+<div class="row">
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_movies_genre_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的类型如动作、喜剧、剧情等 ******************** pie_v2***/ init_echart("echart_movies_genre_pie_v2",'movies.genre_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_movies_genre_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的类型如动作、喜剧、剧情等 ******************** pie_v1***/ init_echart("echart_movies_genre_pie_v1",'movies.genre_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_movies_genre_pie" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的类型如动作、喜剧、剧情等 ******************** pie***/ init_echart("echart_movies_genre_pie",'movies.genre_pie','/config_visual/bi',{});</script>
+<div class="col-sm-5"><div class="default-echart-border"><div id="echart_movies_genre_line" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的类型如动作、喜剧、剧情等 ******************** line***/ init_echart("echart_movies_genre_line",'movies.genre_line','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_movies_genre_bar" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的类型如动作、喜剧、剧情等 ******************** bar***/ init_echart("echart_movies_genre_bar",'movies.genre_bar','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_movies_genre_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的类型如动作、喜剧、剧情等 ******************** bar_v1***/ init_echart("echart_movies_genre_bar_v1",'movies.genre_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+</div>
+
+
+
+<div class="row">
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_movies_director_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影导演的名字 ******************** pie_v2***/ init_echart("echart_movies_director_pie_v2",'movies.director_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_movies_director_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影导演的名字 ******************** pie_v1***/ init_echart("echart_movies_director_pie_v1",'movies.director_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_movies_director_pie" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影导演的名字 ******************** pie***/ init_echart("echart_movies_director_pie",'movies.director_pie','/config_visual/bi',{});</script>
+<div class="col-sm-5"><div class="default-echart-border"><div id="echart_movies_director_line" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影导演的名字 ******************** line***/ init_echart("echart_movies_director_line",'movies.director_line','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_movies_director_bar" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影导演的名字 ******************** bar***/ init_echart("echart_movies_director_bar",'movies.director_bar','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_movies_director_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影导演的名字 ******************** bar_v1***/ init_echart("echart_movies_director_bar_v1",'movies.director_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+</div>
+
+
+
+<div class="row">
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_movies_cast_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的主要演员列 ******************** pie_v2***/ init_echart("echart_movies_cast_pie_v2",'movies.cast_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_movies_cast_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的主要演员列 ******************** pie_v1***/ init_echart("echart_movies_cast_pie_v1",'movies.cast_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_movies_cast_pie" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的主要演员列 ******************** pie***/ init_echart("echart_movies_cast_pie",'movies.cast_pie','/config_visual/bi',{});</script>
+<div class="col-sm-5"><div class="default-echart-border"><div id="echart_movies_cast_line" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的主要演员列 ******************** line***/ init_echart("echart_movies_cast_line",'movies.cast_line','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_movies_cast_bar" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的主要演员列 ******************** bar***/ init_echart("echart_movies_cast_bar",'movies.cast_bar','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_movies_cast_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的主要演员列 ******************** bar_v1***/ init_echart("echart_movies_cast_bar_v1",'movies.cast_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+</div>
+
+
+
+<div class="row">
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_movies_rating_pie_v2" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的评分可以是用户评分的平均值 ******************** pie_v2***/ init_echart("echart_movies_rating_pie_v2",'movies.rating_pie_v2','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_movies_rating_pie_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的评分可以是用户评分的平均值 ******************** pie_v1***/ init_echart("echart_movies_rating_pie_v1",'movies.rating_pie_v1','/config_visual/bi',{},);</script>
+<div class="col-sm-3"><div class="default-echart-border"><div id="echart_movies_rating_pie" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的评分可以是用户评分的平均值 ******************** pie***/ init_echart("echart_movies_rating_pie",'movies.rating_pie','/config_visual/bi',{});</script>
+<div class="col-sm-5"><div class="default-echart-border"><div id="echart_movies_rating_line" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的评分可以是用户评分的平均值 ******************** line***/ init_echart("echart_movies_rating_line",'movies.rating_line','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_movies_rating_bar" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的评分可以是用户评分的平均值 ******************** bar***/ init_echart("echart_movies_rating_bar",'movies.rating_bar','/config_visual/bi',{});</script>
+<div class="col-sm-4"><div class="default-echart-border"><div id="echart_movies_rating_bar_v1" class="myechart_size"></div></div></div>
+<script>/*** 电影表 电影的评分可以是用户评分的平均值 ******************** bar_v1***/ init_echart("echart_movies_rating_bar_v1",'movies.rating_bar_v1','/config_visual/bi',{},polar={radius: [30, '80%']});</script>
+</div>
+
+
+
+    </div>
+  </body>
+</html>

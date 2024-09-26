@@ -1,0 +1,147 @@
+{% extends 'tp.html' %}
+
+{% block title %}
+beta_基于机器学习的电影评论情感分析与研究系统
+
+{% endblock %}
+{% block header-image %}
+
+{% endblock %}
+
+{% block body %}
+
+<h1 hidden>
+    标注-用于区分表名
+训练数据集表
+</h1>
+
+<div class="container my-container-margin">
+    <div class="row">
+        <div class="col s6">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                训练数据集表
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container my-container-margin">
+    <div class="tab-content" id="myTabContent">
+        
+<div class="tab-pane fade show " id="t-3424-tab-pane" role="tabpanel" aria-labelledby="t-3424-tab" tabindex="0">
+系统管理员
+<div>
+<a href="/config_busi/supermanager" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-3423-tab-pane" role="tabpanel" aria-labelledby="t-3423-tab" tabindex="0">
+预测结果表
+<div>
+<a href="/config_busi/predictions" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-3422-tab-pane" role="tabpanel" aria-labelledby="t-3422-tab" tabindex="0">
+模型表
+<div>
+<a href="/config_busi/models" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-3421-tab-pane" role="tabpanel" aria-labelledby="t-3421-tab" tabindex="0">
+训练数据集表
+<div>
+<a href="/config_busi/trainingdata" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-3420-tab-pane" role="tabpanel" aria-labelledby="t-3420-tab" tabindex="0">
+评论表
+<div>
+<a href="/config_busi/reviews" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-3419-tab-pane" role="tabpanel" aria-labelledby="t-3419-tab" tabindex="0">
+电影表
+<div>
+<a href="/config_busi/movies" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+<div class="tab-pane fade show " id="t-3418-tab-pane" role="tabpanel" aria-labelledby="t-3418-tab" tabindex="0">
+用户表
+<div>
+<a href="/config_busi/users" target="_blank">
+查看数据
+</a>
+</div>
+</div>
+
+
+    </div>
+</div>
+
+
+        {% if mcauthfield_dataid.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="dataid" class="form-label form-group">训练数据条目的唯一标识符</label>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_reviewcontent.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="reviewcontent" class="form-label form-group">训练数据中的评论内容文本</label>
+
+<textarea class="form-control form-control-lg" name="reviewcontent" id="reviewcontent" {% if not mcauthfield_reviewcontent.mcisblank %}required {% endif %}data-name="insert"></textarea>
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_sentimentlabel.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="sentimentlabel" class="form-label form-group">情感标签用于监督学习如正面为1负面为0</label>
+
+<input type="text" class="form-control form-control-lg" name="sentimentlabel" id="sentimentlabel"{% if not mcauthfield_sentimentlabel.mcisblank %}required {% endif %}data-name="insert">
+
+</div>
+        {% endif %}
+
+        {% if mcauthfield_usedfortraining.mcauthchange  %}
+<div class="input-field col s12 mb-3">
+    <label for="usedfortraining" class="form-label form-group">示该数据条目是否已被用于模型训练</label>
+
+<select class="form-select form-select-lg mb-3" name="usedfortraining" id="usedfortraining" {% if not mcauthfield_usedfortraining.mcisblank %}required {% endif %} data-name="insert">
+<option value="True" selected >是</option>
+<option value="False">否</option>
+</select>
+
+</div>
+        {% endif %}
+
+{% endblock %}
+
+{% block footer %}
+
+CopyRight ©beta_基于机器学习的电影评论情感分析与研究系统 vm432_bf0a45f882b27e8f
+
+{% endblock %}
+
+{% block script-footer %}
+
+{% endblock %}
+
